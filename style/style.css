@@ -1,0 +1,28 @@
+body{
+
+   background-image: url("../imgs/Background.jpg");
+
+}
+
+.w3-main{
+   margin: 10px;
+}
+.floatMeLeft{
+   float: left;
+   margin-right: 2%;
+   width:20% ;
+   height:20% ;
+}
+.w3-top{
+   width:80%;
+   margin: auto;
+}
+#overAll{
+   width:80%;
+   margin: auto;
+   background-color: white;
+}
+
+.w3-container{
+   width: 100%;
+}

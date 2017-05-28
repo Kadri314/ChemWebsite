@@ -1,0 +1,8 @@
+Please don't change the first two lines. Each line has name followed by comma then the email of the member (Empty Lines are ignored)
+Name,email
+Jack,mga35@mail.aub.edu
+Jack2,mga35@mail.aub.edu
+Jack3,mga35@mail.aub.edu
+Jack4,mga35@mail.aub.edu
+Jack5,mga35@mail.aub.edu
+         
