@@ -1,26 +1,25 @@
 Don't change the first two lines. Please stick with the format of this file and follow the same format whenever research is added.
 Make sure to increment the number of research by one when adding a new research. (Empty Lines are ignored).
-number of research = 5
+number of research = 3
 ------------------------------------------------
 research: 1
-title:
+title: aaaa
 number of points = 5
-1-
-2-
-3-
-4-
-5-
+1-a
+2-b
+3-c
+4-d
+5-e
 ------------------------------------------------
 research: 2
-title:
+title:bbbb
 number of points = 3
-1-
-2-
-3-
+1-a
+2-b
+3-c
 ------------------------------------------------
 research: 3
-title:
+title:cccc
 number of points = 2
-1-
-2-
-         
+1-a
+2-b

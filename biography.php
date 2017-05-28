@@ -42,10 +42,24 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
      <div class="w3-row">
        <div class="w3-twothird w3-container">
-          <br/>
+          <br/><br/>
+          <figure>
+            <img src="imgs/Hmadeh.jpg" class="floatMeLeft" >
+            <figcaption style="text-align: center;">Dr. Mohamad Hmadeh</figcaption>
+         </figure>
+
          <h1 class="w3-text-teal">Biography:</h1>
-         <img src="imgs/Hmadeh.jpg" class="floatMeLeft">
-         <p style="overflow:hidden;"> Dr. Mohamad Hmadeh was appointed as Assistant Professor of Chemistry at AUB in January 2014. He obtained his Ph.D. degree in Chemistry (Jan 2010) from the University of Strasbourg (UdS) in France. His research as a graduate student was focused on the ionic and molecular recognition processes in bioinorganic and supramolecular systems. After graduation, he joined the University of California, Los Angeles (UCLA) as a postdoctoral fellow in the group of Professor Omar M. Yaghi who is known as one of the pioneers of Metal Organic Frameworks (MOFs). During his stay at UCLA (2010-2012), his research was focused on the design, synthesis, and characterization of novel porous and crystalline materials with exceptional gas sorption, catalysis and electronic properties. He is currently in his second year as a postdoctoral researcher in Prof. Geoffrey Ozin’s group at the University of Toronto (U of T) where he is working on synthesis and evaluation of new photocatalysts for solar fuel production. His research group at AUB will utilize an interdisciplinary approach to study emerging problems at the forefront of inorganic and nanomaterial chemistry. His research will be directed towards the design and fabrication of a new set of inorganic and hybrid (organic-inorganic) materials with unprecedented chemical, topological and gas sorption properties. Various applications are envisioned in the fields of gas storage, gas separations, conductivity and catalysis. His research program will result in strong collaborations with faculty members both within the chemistry department at AUB and around the world.
+         <?php
+            $arrayOfLines=file("DB/biography.txt",FILE_IGNORE_NEW_LINES);
+            // we need to ignore the first  line so we initiliazed  i=1
+            $size=count($arrayOfLines);
+            $biography="";
+            for($i=1; $i<$size; $i++){
+               $biography=$biography."\n".$arrayOfLines[$i];
+            }
+         ?>
+         <p >
+            <?=$biography?>
          </p>
        </div>
 
@@ -54,21 +68,20 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
      <div class="w3-row w3-padding-64">
        <div class="w3-twothird w3-container">
          <h1 class="w3-text-teal">Education:</h1>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-           dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+         <ul>
+         <?php
+            $arrayOfLines=file("DB/education.txt",FILE_IGNORE_NEW_LINES);
+            // we need to ignore the first  line so we initiliazed  i=1
+            $size=count($arrayOfLines);
+            for($i=1; $i<$size; $i++){
+               ?>
+               <li><?=substr($arrayOfLines[$i],2)?></li>
+               <?php
+            }
+         ?>
+         </ul>
        </div>
      </div>
-
-     <div class="w3-row w3-padding-64">
-       <div class="w3-twothird w3-container">
-         <h1 class="w3-text-teal">Research Interests:</h1>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-           dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-       </div>
-     </div>
-
-
-
 
 
    <!-- END MAIN -->

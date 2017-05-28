@@ -2,7 +2,7 @@
    if(!isset($_REQUEST["userName"]) || !isset($_REQUEST["password"])){
       die("Unathorized Access");
    }
-   $lines= file("userInfo.txt",FILE_IGNORE_NEW_LINES);
+   $lines= file("../DB/userInfo.txt",FILE_IGNORE_NEW_LINES);
    list($userName,$password)=$lines;
    if(strcasecmp($userName,$_REQUEST["userName"])==0 && strcmp($password,$_REQUEST["password"])==0){
       // login information are correct

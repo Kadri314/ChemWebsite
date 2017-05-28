@@ -1,11 +1,10 @@
 Don't change the first line. Just change the values that come only after the colon (:). (Empty Lines are ignored).
 Universty Name: American University of Beirut
-Country:Beirut-Riad Al Sulh
-City:Lebanon
+Country:Lebanon
+City:Beirut-Riad Al Sulh 
 P.O Box:123232
 Faculty:Faculty of Art and Sciences
 Department:Department Of Chemistry.
 Mail:mh210@aub.edu.lb
 Phone: 01 350 000 -Ext:3988
 Office: Chemistry 424
-         

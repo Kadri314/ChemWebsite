@@ -8,14 +8,22 @@ body{
    margin: 10px;
 }
 .floatMeLeft{
-   float: left;
-   margin-right: 2%;
-   width:20% ;
-   height:20% ;
+    border-radius: 25px;
+    border: 2px solid #009688;
+    /*padding: 20px;*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2px;
+
 }
 .w3-top{
    width:80%;
    margin: auto;
+}
+p{
+   margin-left: 40px;
+   margin-right: 40px;
 }
 #overAll{
    width:80%;

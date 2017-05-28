@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="style/style.css">
-<link rel="stylesheet" href="style/slideShow.css">
 
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
@@ -40,7 +39,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
      <div class="w3-row w3-padding-64">
        <div class="w3-twothird w3-container" >
          <!-- SlideShow -->
-         <img src="imgs/AubLoc.PNG" style="width:100%; height:400px; border:2px solid gray;"/>
+         <h1 class="w3-text-teal">Location:</h1>
+         <img src="imgs/AubLoc.PNG" style="width:70%; height:50%; display:block; margin:auto; border:2px solid gray;"/>
          <!-- EndOfSlideShow -->
       </div>
      </div>
@@ -62,12 +62,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             $phone=substr($arrayOfLines[$i],strpos($arrayOfLines[$i++],":")+1);
             $office=substr($arrayOfLines[$i],strpos($arrayOfLines[$i++],":")+1);
          ?>
-         <p> <?=$uni?> <br/>
+         <p > <?=$uni?> <br/>
             <?=$country?> <br/>
             <?=$city?><br/>
             P.O Box: <?=$box?> <br/>
             <?=$faculty?><br/>
-            <?=$dep?> <hr/>
+            <?=$dep?> <hr style="border-color: rgb(119,119,119);"/> </p>
+            <p>
             Mail: <?=$mail?>  <br/>
             Phone: <?=$phone?> <br/>
             Office: <?=$office?> </p>

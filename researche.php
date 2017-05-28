@@ -41,42 +41,53 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
        <div class="w3-twothird w3-container" >
          <h1 class="w3-text-teal">Acadimic Research: </h1>
          <!-- accordion -->
-<button class="accordion">Research 1</button>
-<div class="panel">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
+         <?php
+            $lines=file("DB/research.txt",FILE_IGNORE_NEW_LINES);
+            $size=count($lines);
+            //we will initialized i=2 to ignore the first two lines and get the number of research, which is on the 3rd line
+            $i=2; // i is the line cursure
+            $numberOfResearch=substr($lines[$i],strpos($lines[$i++],"=")+2);
+            for($j=0; $j<$numberOfResearch; $j++){
+               // iterating over researches
+               $i+=2; // to move forward to the title of the research
+               $title=substr($lines[$i],strpos($lines[$i++],":")+1);
+               // pinting the title
+               ?>
+                  <button class="accordion"><?=$title?></button>
+                  <div class="panel">
+                     <ul>
+               <?php
+               $numberOfPoints=substr($lines[$i],strpos($lines[$i++],"=")+2);
+               for($k=0; $k<$numberOfPoints; $k++){
+                  // iterating over points
+                  $point=substr($lines[$i++],2);
+                  // printing the points
+                  ?>
+                       <li><?=$point?></li>
+                  <?php
+               }
+               ?>
+                     </ul>
+                  </div>
+               <?php
+            }
+         ?>
+         <script>
+         var acc = document.getElementsByClassName("accordion");
+         var i;
 
-<button class="accordion">Research 2</button>
-<div class="panel">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
-<button class="accordion">Research 3</button>
-<div class="panel">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
-<button class="accordion">Research 4</button>
-<div class="panel">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].onclick = function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  }
-}
-</script>
+         for (i = 0; i < acc.length; i++) {
+           acc[i].onclick = function() {
+             this.classList.toggle("active");
+             var panel = this.nextElementSibling;
+             if (panel.style.maxHeight){
+               panel.style.maxHeight = null;
+             } else {
+               panel.style.maxHeight = panel.scrollHeight + "px";
+             }
+           }
+         }
+         </script>
 
          <!-- EndOfAccordion -->
       </div>

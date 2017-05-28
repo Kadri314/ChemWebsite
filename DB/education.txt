@@ -1,4 +1,4 @@
-education eded
-s
-s
-s
+----- Don't change the first line. Your Education history starts below this line ----- (Empty Lines are ignored).
+1-a
+2-b
+3-c

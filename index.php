@@ -81,7 +81,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                $size=count($arrayOfLines);
                for($i=4; $i<$size; $i++){
                   ?>
-                     <li><?=$arrayOfLines[$i]?></li>
+                     <li><?=substr($arrayOfLines[$i],2)?></li>
                   <?php
                }
             ?>
