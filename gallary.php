@@ -1,10 +1,22 @@
+<?php
+   session_start();
+   if(isset($_SESSION["lastLogIn"])){
+      $lastLogIn=$_SESSION["lastLogIn"];
+      if(time()-$lastLogIn>=60*60){
+        // user has been browsing the page more than 20 minutes so we redirect him to login.html page to log in again
+        session_destroy();
+        session_regenerate_id(true);
+        header("location: login.html");
+     }else $_SESSION["lastLogIn"]=time();
+ }
+?>
 <!DOCTYPE html>
 <html>
 <title>Prof.Mohamad Hmadeh  </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="style/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="style/style.css">
@@ -21,7 +33,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
        <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
        <a href="index.php" class="w3-bar-item w3-button w3-theme-l1">Home</a>
        <a href="biography.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Biography</a>
-       <a href="researche.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Researche</a>
+       <a href="researche.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Research</a>
        <a href="publications.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Publications</a>
        <a href="gallary.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Gallery</a>
        <a href="members.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Members</a>
@@ -41,20 +53,22 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
        <div class="w3-twothird w3-container" >
          <h1 class="w3-text-teal">Pictures:</h1>
          <!-- adding gallary -->
+
          <!-- Row 1 -->
           <div class="responsive">
           <div class="gallery">
             <a target="_blank" href="imgs/gallary1.jpg">
-              <img src="imgs/gallary1.jpg" alt="Trolltunga Norway" width="300" height="200">
+              <img src="imgs/gallary1.jpg" alt="Trolltunga Norway">
             </a>
             <div class="desc">Add a description of the image here</div>
+
           </div>
          </div>
 
          <div class="responsive">
           <div class="gallery">
             <a target="_blank" href="imgs/gallary2.jpg">
-              <img src="imgs/gallary2.jpg" alt="Forest" width="600" height="400">
+              <img src="imgs/gallary2.jpg" alt="Forest">
             </a>
             <div class="desc">Add a description of the image here</div>
           </div>
@@ -63,7 +77,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
          <div class="responsive">
           <div class="gallery">
             <a target="_blank" href="imgs/gallary3.jpg">
-              <img src="imgs/gallary3.jpg" alt="Northern Lights" width="600" height="400">
+              <img src="imgs/gallary3.jpg" alt="Northern Lights" >
             </a>
             <div class="desc">Add a description of the image here</div>
           </div>
@@ -74,28 +88,82 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
          <div class="responsive">
          <div class="gallery">
-          <a target="_blank" href="imgs/gallary4.jpg">
-           <img src="imgs/gallary4.jpg" alt="Trolltunga Norway" width="300" height="200">
+            <?php
+             $fileName=glob("imgs/gallaryImgs/1.*");
+             $fileName=$fileName[0];
+            ?>
+          <a target="_blank" href=<?=$fileName?>>
+           <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
           <div class="desc">Add a description of the image here</div>
+          <?php
+             if(isset($_SESSION["lastLogIn"])){
+                ?>
+                <div class="desc">
+                <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data">
+                  <input type="file" name="1" accept="image/*">
+                  <input type="hidden" name="fileName" value="1">
+                  <input type="hidden" name="directory" value="../imgs/gallaryImgs/">
+                  <input type="submit" value="change Image">
+                </form>
+                </div>
+             <?php
+             }
+          ?>
          </div>
          </div>
 
          <div class="responsive">
          <div class="gallery">
-          <a target="_blank" href="imgs/gallary2.jpg">
-           <img src="imgs/gallary2.jpg" alt="Forest" width="600" height="400">
+            <?php
+             $fileName=glob("imgs/gallaryImgs/2.*");
+             $fileName=$fileName[0];
+            ?>
+          <a target="_blank" href=<?=$fileName?>>
+           <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
           <div class="desc">Add a description of the image here</div>
+          <?php
+             if(isset($_SESSION["lastLogIn"])){
+                ?>
+                <div class="desc">
+                <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data">
+                  <input type="file" name="2" >
+                  <input type="hidden" name="fileName" value="2">
+                  <input type="hidden" name="directory" value="../imgs/gallaryImgs/">
+                  <input type="submit" value="change Image">
+                </form>
+                </div>
+             <?php
+             }
+          ?>
          </div>
          </div>
 
          <div class="responsive">
          <div class="gallery">
-          <a target="_blank" href="imgs/gallary1.jpg">
-           <img src="imgs/gallary1.jpg" alt="Northern Lights" width="600" height="400">
+            <?php
+             $fileName=glob("imgs/gallaryImgs/3.*");
+             $fileName=$fileName[0];
+            ?>
+          <a target="_blank" href=<?=$fileName?>>
+           <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
           <div class="desc">Add a description of the image here</div>
+          <?php
+             if(isset($_SESSION["lastLogIn"])){
+                ?>
+                <div class="desc">
+                <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data">
+                  <input type="file" name="3" accept="image/*">
+                  <input type="hidden" name="fileName" value="3">
+                  <input type="hidden" name="directory" value="../imgs/gallaryImgs/">
+                  <input type="submit" value="change Image">
+                </form>
+                </div>
+             <?php
+             }
+          ?>
          </div>
          </div>
 
@@ -104,28 +172,82 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
          <!-- Row 3 -->
          <div class="responsive">
          <div class="gallery">
-          <a target="_blank" href="img_fjords.jpg">
-           <img src="img_fjords.jpg" alt="Trolltunga Norway" width="300" height="200">
+            <?php
+             $fileName=glob("imgs/gallaryImgs/4.*");
+             $fileName=$fileName[0];
+            ?>
+          <a target="_blank" href=<?=$fileName?>>
+           <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
           <div class="desc">Add a description of the image here</div>
+          <?php
+             if(isset($_SESSION["lastLogIn"])){
+                ?>
+                <div class="desc">
+                <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data">
+                  <input type="file" name="4" accept="image/*">
+                  <input type="hidden" name="fileName" value="4">
+                  <input type="hidden" name="directory" value="../imgs/gallaryImgs/">
+                  <input type="submit" value="change Image">
+                </form>
+                </div>
+             <?php
+             }
+          ?>
          </div>
          </div>
 
          <div class="responsive">
          <div class="gallery">
-          <a target="_blank" href="img_forest.jpg">
-           <img src="img_forest.jpg" alt="Forest" width="600" height="400">
+          <?php
+           $fileName=glob("imgs/gallaryImgs/5.*");
+           $fileName=$fileName[0];
+          ?>
+        <a target="_blank" href=<?=$fileName?>>
+           <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
           <div class="desc">Add a description of the image here</div>
+          <?php
+             if(isset($_SESSION["lastLogIn"])){
+                ?>
+                <div class="desc">
+                <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data">
+                  <input type="file" name="5" accept="image/*">
+                  <input type="hidden" name="fileName" value="5">
+                  <input type="hidden" name="directory" value="../imgs/gallaryImgs/">
+                  <input type="submit" value="change Image">
+                </form>
+                </div>
+             <?php
+             }
+          ?>
          </div>
          </div>
 
          <div class="responsive">
          <div class="gallery">
-          <a target="_blank" href="img_lights.jpg">
-           <img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
+          <?php
+           $fileName=glob("imgs/gallaryImgs/6.*");
+           $fileName=$fileName[0];
+          ?>
+        <a target="_blank" href=<?=$fileName?>>
+           <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
           <div class="desc">Add a description of the image here</div>
+          <?php
+             if(isset($_SESSION["lastLogIn"])){
+                ?>
+                <div class="desc">
+                <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data">
+                  <input type="file" name="6" accept="image/*">
+                  <input type="hidden" name="fileName" value="6">
+                  <input type="hidden" name="directory" value="../imgs/gallaryImgs/">
+                  <input type="submit" value="change Image">
+                </form>
+                </div>
+             <?php
+             }
+          ?>
          </div>
          </div>
 
@@ -134,62 +256,86 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
          <!-- Row 4 -->
          <div class="responsive">
          <div class="gallery">
-          <a target="_blank" href="img_fjords.jpg">
-           <img src="img_fjords.jpg" alt="Trolltunga Norway" width="300" height="200">
+         <?php
+          $fileName=glob("imgs/gallaryImgs/7.*");
+          $fileName=$fileName[0];
+         ?>
+       <a target="_blank" href=<?=$fileName?>>
+           <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
           <div class="desc">Add a description of the image here</div>
+          <?php
+             if(isset($_SESSION["lastLogIn"])){
+                ?>
+                <div class="desc">
+                <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data">
+                  <input type="file" name="7" accept="image/*">
+                  <input type="hidden" name="fileName" value="7">
+                  <input type="hidden" name="directory" value="../imgs/gallaryImgs/">
+                  <input type="submit" value="change Image">
+               </form>
+                </div>
+             <?php
+             }
+          ?>
          </div>
          </div>
 
          <div class="responsive">
          <div class="gallery">
-          <a target="_blank" href="img_forest.jpg">
-           <img src="img_forest.jpg" alt="Forest" width="600" height="400">
+          <?php
+           $fileName=glob("imgs/gallaryImgs/8.*");
+           $fileName=$fileName[0];
+          ?>
+        <a target="_blank" href=<?=$fileName?>>
+           <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
           <div class="desc">Add a description of the image here</div>
+          <?php
+             if(isset($_SESSION["lastLogIn"])){
+                ?>
+                <div class="desc">
+                <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data">
+                  <input type="file" name="8" accept="image/*">
+                  <input type="hidden" name="fileName" value="8">
+                  <input type="hidden" name="directory" value="../imgs/gallaryImgs/">
+                  <input type="submit" value="change Image">
+                </form>
+                </div>
+             <?php
+             }
+          ?>
          </div>
          </div>
 
          <div class="responsive">
          <div class="gallery">
-          <a target="_blank" href="img_lights.jpg">
-           <img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
+          <?php
+           $fileName=glob("imgs/gallaryImgs/9.*");
+           $fileName=$fileName[0];
+          ?>
+        <a target="_blank" href=<?=$fileName?>>
+           <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
           <div class="desc">Add a description of the image here</div>
+          <?php
+             if(isset($_SESSION["lastLogIn"])){
+                ?>
+                <div class="desc">
+                <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data">
+                  <input type="file" name="9" accept="image/*">
+                  <input type="hidden" name="directory" value="../imgs/gallaryImgs/">
+                  <input type="submit" value="change Image">
+                </form>
+                </div>
+             <?php
+             }
+          ?>
          </div>
          </div>
 
          <div class="clearfix"></div>
 
-         <!-- Row 5 -->
-         <div class="responsive">
-         <div class="gallery">
-          <a target="_blank" href="img_fjords.jpg">
-           <img src="img_fjords.jpg" alt="Trolltunga Norway" width="300" height="200">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-         </div>
-         </div>
-
-         <div class="responsive">
-         <div class="gallery">
-          <a target="_blank" href="img_forest.jpg">
-           <img src="img_forest.jpg" alt="Forest" width="600" height="400">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-         </div>
-         </div>
-
-         <div class="responsive">
-         <div class="gallery">
-          <a target="_blank" href="img_lights.jpg">
-           <img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-         </div>
-         </div>
-
-         <div class="clearfix"></div>
          <!-- end of gallary -->
 
       </div>

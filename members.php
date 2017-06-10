@@ -1,10 +1,22 @@
+<?php
+   session_start();
+   if(isset($_SESSION["lastLogIn"])){
+      $lastLogIn=$_SESSION["lastLogIn"];
+      if(time()-$lastLogIn>=60*60){
+        // user has been browsing the page more than 20 minutes so we redirect him to login.html page to log in again
+        session_destroy();
+        session_regenerate_id(true);
+        header("location: login.html");
+     }else $_SESSION["lastLogIn"]=time();
+ }
+?>
 <!DOCTYPE html>
 <html>
 <title>Prof.Mohamad Hmadeh </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="style/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="style/style.css">
@@ -20,7 +32,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
        <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
        <a href="index.php" class="w3-bar-item w3-button w3-theme-l1">Home</a>
        <a href="biography.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Biography</a>
-       <a href="researche.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Researche</a>
+       <a href="researche.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Research</a>
        <a href="publications.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Publications</a>
        <a href="gallary.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Gallery</a>
        <a href="members.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Members</a>
@@ -39,7 +51,24 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
       <div class="w3-row w3-padding-64">
        <div class="w3-twothird w3-container" >
          <!-- SlideShow -->
-         <img src="imgs/AubLoc.PNG" style="width:70%; height:50%; display:block; margin:auto; border:2px solid gray;"/>
+         <?php
+         $fileName=glob("imgs/members.*");
+         $fileName=$fileName[0];
+         ?>
+         <img src=<?=$fileName?> style=" display:block;width:70%; height:50%; margin:auto; border:2px solid gray;"/>
+         <?php
+           if(isset($_SESSION["lastLogIn"])){
+               ?>
+               <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data" style="width:20%;margin-left: auto;
+               margin-right: auto; margin-top:5px;">
+                 <input type="file" name="members" accept="image/*" style="width:100%;">
+                 <input type="hidden" name="fileName" value="members">
+                 <input type="hidden" name="directory" value="../imgs/">
+                 <input type="submit" value="change Image">
+               </form>
+            <?php
+               }
+            ?>
          <!-- EndOfSlideShow -->
       </div>
      </div>

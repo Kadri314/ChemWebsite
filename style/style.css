@@ -7,19 +7,32 @@ body{
 .w3-main{
    margin: 10px;
 }
-.floatMeLeft{
+.styleMe{
     border-radius: 25px;
     border: 2px solid #009688;
     /*padding: 20px;*/
     display: block;
+    width:44%;
+    height: 44% ;
+
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2px;
 
 }
+li{
+   margin: 2%;
+}
 .w3-top{
    width:80%;
+   height:150px ;
    margin: auto;
+}
+.w3-theme{
+   background-color: red;
+}
+.w3-twothird{
+   margin-top: 10%;
 }
 p{
    margin-left: 40px;
