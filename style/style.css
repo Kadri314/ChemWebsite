@@ -24,16 +24,18 @@ li{
    margin: 2%;
 }
 .w3-top{
-   width:80%;
-   height:150px ;
+   height:150px;
    margin: auto;
+   /*background-image: url("imgs/nav.jpg");*/
 }
 .w3-theme{
    background-color: red;
 }
 .w3-twothird{
-   margin-top: 10%;
+   width: 80%;
+   margin: auto;
 }
+
 p{
    margin-left: 40px;
    margin-right: 40px;

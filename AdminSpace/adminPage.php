@@ -16,7 +16,10 @@
             <a href="editContactInfo.php"><li>Edit Contact Information </li></a>
             <a href="editLastNews.php"><li>Edit Latest News </li></a>
             <a href="editBioEdu.php"> <li>Edit Biography and Education </li></a>
+            <a href="editVid.php"> <li>Edit Video </li></a>
             <a href="../gallary.php"> <li>Edit Gallary </li></a>
+            <a href="../index.php"> <li>Go to Home Page</li></a>
+
          </ul>
             <!--
              // 1- Edit Research

@@ -15,7 +15,7 @@
 <title>Prof.Mohamad Hmadeh  </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style/w3.css">
 <link rel="stylesheet" href="style/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -38,6 +38,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
        <a href="gallary.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Gallery</a>
        <a href="members.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Members</a>
        <a href="contact.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Contact</a>
+       <?php
+         if(isset($_SESSION["lastLogIn"])){
+            ?>
+             <a href="AdminSpace/adminPage.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Admin Space</a>
+            <?php
+         }
+
+       ?>
      </div>
    </div>
 
@@ -57,29 +65,37 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
          <!-- Row 1 -->
           <div class="responsive">
           <div class="gallery">
+             <!-- loading video links:  -->
+             <?php
+               $arrayOfLines=file("DB/vidLinks.txt",FILE_IGNORE_NEW_LINES);
+               $vid1Link=$arrayOfLines[2];
+               $vid2Link=$arrayOfLines[4];
+               $vid3Link=$arrayOfLines[6];
+             ?>
             <a target="_blank" href="imgs/gallary1.jpg">
-              <img src="imgs/gallary1.jpg" alt="Trolltunga Norway">
+              <iframe src="<?=$vid1Link?>"
+              width="100%" height="150px" frameborder="0" allowfullscreen></iframe>
             </a>
-            <div class="desc">Add a description of the image here</div>
-
           </div>
          </div>
 
          <div class="responsive">
           <div class="gallery">
             <a target="_blank" href="imgs/gallary2.jpg">
-              <img src="imgs/gallary2.jpg" alt="Forest">
+              <iframe src="<?=$vid2Link?>"
+              width="100%" height="150px" frameborder="0" allowfullscreen></iframe>
             </a>
-            <div class="desc">Add a description of the image here</div>
+
           </div>
          </div>
 
          <div class="responsive">
           <div class="gallery">
             <a target="_blank" href="imgs/gallary3.jpg">
-              <img src="imgs/gallary3.jpg" alt="Northern Lights" >
+              <iframe src="<?=$vid3Link?>"
+              width="100%" height="150px" frameborder="0" allowfullscreen></iframe>
             </a>
-            <div class="desc">Add a description of the image here</div>
+
           </div>
          </div>
 
@@ -95,7 +111,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <a target="_blank" href=<?=$fileName?>>
            <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
-          <div class="desc">Add a description of the image here</div>
+
           <?php
              if(isset($_SESSION["lastLogIn"])){
                 ?>
@@ -122,7 +138,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <a target="_blank" href=<?=$fileName?>>
            <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
-          <div class="desc">Add a description of the image here</div>
+
           <?php
              if(isset($_SESSION["lastLogIn"])){
                 ?>
@@ -149,7 +165,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <a target="_blank" href=<?=$fileName?>>
            <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
-          <div class="desc">Add a description of the image here</div>
+
           <?php
              if(isset($_SESSION["lastLogIn"])){
                 ?>
@@ -179,7 +195,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <a target="_blank" href=<?=$fileName?>>
            <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
-          <div class="desc">Add a description of the image here</div>
+
           <?php
              if(isset($_SESSION["lastLogIn"])){
                 ?>
@@ -206,7 +222,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <a target="_blank" href=<?=$fileName?>>
            <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
-          <div class="desc">Add a description of the image here</div>
+
           <?php
              if(isset($_SESSION["lastLogIn"])){
                 ?>
@@ -233,7 +249,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <a target="_blank" href=<?=$fileName?>>
            <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
-          <div class="desc">Add a description of the image here</div>
+
           <?php
              if(isset($_SESSION["lastLogIn"])){
                 ?>
@@ -263,7 +279,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
        <a target="_blank" href=<?=$fileName?>>
            <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
-          <div class="desc">Add a description of the image here</div>
+
           <?php
              if(isset($_SESSION["lastLogIn"])){
                 ?>
@@ -290,7 +306,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <a target="_blank" href=<?=$fileName?>>
            <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
-          <div class="desc">Add a description of the image here</div>
+
           <?php
              if(isset($_SESSION["lastLogIn"])){
                 ?>
@@ -317,7 +333,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <a target="_blank" href=<?=$fileName?>>
            <img src=<?=$fileName?> alt="Trolltunga Norway" >
           </a>
-          <div class="desc">Add a description of the image here</div>
+
           <?php
              if(isset($_SESSION["lastLogIn"])){
                 ?>

@@ -3,7 +3,7 @@
 <title>Prof.Mohamad Hmadeh </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style/w3.css">
 <link rel="stylesheet" href="style/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,14 +19,23 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
    <!-- Navbar -->
    <div class="w3-top">
      <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
-       <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-       <a href="index.php" class="w3-bar-item w3-button w3-theme-l1">Home</a>
-       <a href="biography.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Biography</a>
-       <a href="researche.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Research</a>
-       <a href="publications.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Publications</a>
-       <a href="gallary.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Gallery</a>
-       <a href="members.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Members</a>
-       <a href="contact.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Contact</a>
+      <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+      <a href="index.php" class="w3-bar-item w3-button w3-theme-l1">Home</a>
+      <a href="biography.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Biography</a>
+      <a href="researche.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Research</a>
+      <a href="publications.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Publications</a>
+      <a href="gallary.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Gallery</a>
+      <a href="members.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Members</a>
+      <a href="contact.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Contact</a>
+      <?php
+          session_start();
+        if(isset($_SESSION["lastLogIn"])){
+           ?>
+           <a href="AdminSpace/adminPage.php" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Admin Space</a>
+           <?php
+        }
+
+      ?>
      </div>
    </div>
 
@@ -44,15 +53,23 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
          <!-- SlideShow -->
          <div class="slideshow-container">
             <div class="mySlides fade">
-              <img src="imgs/slide-5.jpg" style="width:100%; height:400px;">
+              <img src="imgs/slide/s1.jpg" style="width:100%; height:400px;">
             </div>
 
             <div class="mySlides fade">
-              <img src="imgs/slide-4.jpg" style="width:100%; height:400px;">
+              <img src="imgs/slide/s2.png" style="width:100%; height:400px;">
             </div>
 
             <div class="mySlides fade">
-              <img src="imgs/slide-1.jpg" style="width:100%; height:400px;">
+              <img src="imgs/slide/s3.png" style="width:100%; height:400px;">
+            </div>
+
+            <div class="mySlides fade">
+              <img src="imgs/slide/s4.png" style="width:100%; height:400px;">
+            </div>
+
+            <div class="mySlides fade">
+              <img src="imgs/slide/s5.png" style="width:100%; height:400px;">
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -65,6 +82,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               <span class="dot" onclick="currentSlide(1)"></span>
               <span class="dot" onclick="currentSlide(2)"></span>
               <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(4)"></span>
+              <span class="dot" onclick="currentSlide(5)"></span>
             </div>
          <!-- EndOfSlideShow -->
       </div>
@@ -72,6 +91,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
      </div>
 
      <div class="w3-row">
+
        <div class="w3-twothird w3-container">
          <h1 class="w3-text-teal">Latest News:</h1>
          <ul>

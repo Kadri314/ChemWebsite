@@ -13,8 +13,14 @@ function changeSlide(){
           currentSlide(3)
       }, 6000);
       setTimeout(function(){
-          currentSlide(1)
+          currentSlide(4)
       }, 9000);
+      setTimeout(function(){
+          currentSlide(5)
+      }, 10200);
+      setTimeout(function(){
+          currentSlide(1)
+      }, 13200);
 }
 // for slide show
 var slideIndex = 1;

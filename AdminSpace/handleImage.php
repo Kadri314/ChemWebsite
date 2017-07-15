@@ -2,7 +2,6 @@
 include("checkSession.php");
 uploadFile($_REQUEST["fileName"],$_REQUEST["directory"]);
 
-
 function uploadFile($fileName,$target_dir){;
    $target_file = $target_dir .$fileName.'.'.pathinfo(basename($_FILES[$fileName]["name"]),PATHINFO_EXTENSION);
    echo $target_file;

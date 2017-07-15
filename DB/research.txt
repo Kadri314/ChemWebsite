@@ -5,8 +5,8 @@ number of research = 4
 research: 1
 title: aaaa
 number of points = 3
-1-Our research is directed toward developing and fabricating new functional materials that are based on inorganic and hybrid (organic –inorganic) structures, and their applications in the fields of environmental remediation and clean energy production. The development of such materials includes: 
-2- -Design and synthesis of new metal oxide, oxynitride, sulfide, and phosphide nanostructures and nanocomposites for photocatalytic reactions (e.g. water splitting, carbon dioxide reduction) (Figure 1 A). The project focuses specifically on modification of material properties via doping, morphological control and heterostructure design in order to optimize the light absorption and catalytic activity of the nanomaterials. 
+1-Our research is directed toward developing and fabricating new functional materials that are based on inorganic and hybrid (organic –inorganic) structures, and their applications in the fields of environmental remediation and clean energy production. The development of such materials includes:
+2- -Design and synthesis of new metal oxide, oxynitride, sulfide, and phosphide nanostructures and nanocomposites for photocatalytic reactions (e.g. water splitting, carbon dioxide reduction) (Figure 1 A). The project focuses specifically on modification of material properties via doping, morphological control and heterostructure design in order to optimize the light absorption and catalytic activity of the nanomaterials.
 3--Design and construction of new crystalline porous materials (metal organic frameworks (MOFs), covalent organic frameworks (COFs) and other related structures in the realm of reticular chemistry) with unique properties and applications including gas storage, gas separation, and catalysis (Figure1 B). We are investigating the incorporation of new functional units into MOFs/COFs and the resulting effect on their functional properties (e.g. gas selectivity, catalysis, sensing, conductivity, charge storage).
 ------------------------------------------------
 research: 2
@@ -25,7 +25,6 @@ number of points = 2
 research: 4
 title:cccc
 number of points = 3
-1- which metal oxides clusters are linked together by organic molecules to produce highly porous crystals. 
+1- which metal oxides clusters are linked together by organic molecules to produce highly porous crystals.
 2-sssssssssssssssssssssssssssssssssssssssss
 3-
-                                                      

@@ -1,0 +1,7 @@
+---don't remove the first line. In case you want to change the video just change the link--- (Empty Lines are ignored).
+Video 1 link:
+http://www.youtube.com/embed/W7qWa52k-nE
+Video 2 link:
+http://www.youtube.com/embed/W7qWa52k-nE
+Video 3 link:
+http://www.youtube.com/embed/W7qWa52k-nE
