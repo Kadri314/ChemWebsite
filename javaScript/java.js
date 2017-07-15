@@ -17,10 +17,10 @@ function changeSlide(){
       }, 9000);
       setTimeout(function(){
           currentSlide(5)
-      }, 10200);
+      }, 12000);
       setTimeout(function(){
           currentSlide(1)
-      }, 13200);
+      }, 15000);
 }
 // for slide show
 var slideIndex = 1;

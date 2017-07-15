@@ -53,11 +53,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
          <!-- SlideShow -->
          <div class="slideshow-container">
             <div class="mySlides fade">
-              <img src="imgs/slide/s1.jpg" style="width:100%; height:400px;">
+              <img src="imgs/slide/s2.jpg" style="width:100%; height:400px;">
             </div>
 
             <div class="mySlides fade">
-              <img src="imgs/slide/s2.png" style="width:100%; height:400px;">
+              <img src="imgs/slide/s1.jpg" style="width:100%; height:400px;">
             </div>
 
             <div class="mySlides fade">
