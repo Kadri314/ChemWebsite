@@ -53,23 +53,30 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
          <!-- SlideShow -->
          <div class="slideshow-container">
             <div class="mySlides fade">
-              <img src="imgs/slide/s2.jpg" style="width:100%; height:400px;">
+               <?php
+                // retrieving images source from imgs/slide/*
+                $arrayOfImagesSource=glob("imgs/slide/s*.*");
+                 $fileName1=$arrayOfImagesSource[0];$fileName2=$arrayOfImagesSource[1];
+                 $fileName3=$arrayOfImagesSource[2];$fileName4=$arrayOfImagesSource[3];
+                 $fileName5=$arrayOfImagesSource[4];
+               ?>
+              <img src="<?=$fileName1?>" style="width:100%; height:400px;">
             </div>
 
             <div class="mySlides fade">
-              <img src="imgs/slide/s1.jpg" style="width:100%; height:400px;">
+              <img src="<?=$fileName2?>" style="width:100%; height:400px;">
             </div>
 
             <div class="mySlides fade">
-              <img src="imgs/slide/s3.png" style="width:100%; height:400px;">
+              <img src="<?=$fileName3?>" style="width:100%; height:400px;">
             </div>
 
             <div class="mySlides fade">
-              <img src="imgs/slide/s4.png" style="width:100%; height:400px;">
+              <img src="<?=$fileName4?>" style="width:100%; height:400px;">
             </div>
 
             <div class="mySlides fade">
-              <img src="imgs/slide/s5.png" style="width:100%; height:400px;">
+              <img src="<?=$fileName5?>" style="width:100%; height:400px;">
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -87,6 +94,29 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             </div>
          <!-- EndOfSlideShow -->
       </div>
+      <!-- Section where admin can edit slide show images  -->
+      <?php
+        if(isset($_SESSION["lastLogIn"])){
+           ?>
+           <div class="desc">
+             <?php
+            for($i=1; $i<=5;$i++){
+             ?>
+              <form action="AdminSpace/handleImage.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="s<?=$i?>" accept="image/*"> <!--name here should be same as fileName value  -->
+                <input type="hidden" name="fileName" value="s<?=$i?>"> <!-- the name of file to be saved as  -->
+                <input type="hidden" name="directory" value="../imgs/slide/">  <!-- Directory where the file to be uploaded -->
+                <input type="submit" value="change Image <?=$i?>">
+              </form>
+
+
+        <?php
+            }
+            ?>
+             </div>
+             <?php
+        }
+      ?>
 
      </div>
 
@@ -100,9 +130,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                // we need to ignore the first 4 lines so we initiliazed  i=4
                $size=count($arrayOfLines);
                for($i=4; $i<$size; $i++){
+                  if(preg_match("/\w/",$arrayOfLines[$i])){ // to ignore the last empty line
+
                   ?>
+
                      <li><?=substr($arrayOfLines[$i],2)?></li>
                   <?php
+                  }
                }
             ?>
          </ul>

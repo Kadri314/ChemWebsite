@@ -24,13 +24,11 @@ li{
    margin: 2%;
 }
 .w3-top{
-   height:150px;
+   /*background-image: url("../imgs/nav.jpg");*/
+   width: 80%;
    margin: auto;
-   /*background-image: url("imgs/nav.jpg");*/
 }
-.w3-theme{
-   background-color: red;
-}
+
 .w3-twothird{
    width: 80%;
    margin: auto;

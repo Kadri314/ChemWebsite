@@ -96,13 +96,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                // we need to ignore the first 2 lines so we initiliazed  i=2
                $size=count($arrayOfLines);
                for($i=2; $i<$size; $i++){
-                  list($name,$email)=explode(",",$arrayOfLines[$i]);
-                  ?>
-                  <tr>
-                    <td><?=$name?></td>
-                    <td><?=$email?></td>
-                  </tr>
-                  <?php
+                  if(preg_match("/\w/",$arrayOfLines[$i])){ // to ignore the last empty line 
+                     list($name,$email)=explode(",",$arrayOfLines[$i]);
+                     ?>
+                     <tr>
+                       <td><?=$name?></td>
+                       <td><?=$email?></td>
+                     </tr>
+                     <?php
+                  }
                }
            ?>
          </table>

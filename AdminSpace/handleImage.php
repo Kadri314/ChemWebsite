@@ -3,7 +3,7 @@ include("checkSession.php");
 uploadFile($_REQUEST["fileName"],$_REQUEST["directory"]);
 
 function uploadFile($fileName,$target_dir){;
-   $target_file = $target_dir .$fileName.'.'.pathinfo(basename($_FILES[$fileName]["name"]),PATHINFO_EXTENSION);
+   $target_file = $target_dir .$fileName.'.'.pathinfo(basename($_FILES[$fileName]["name"]),PATHINFO_EXTENSION);  // binding directory/fileName.Extention
    echo $target_file;
    $uploadOk = 1;
    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -44,7 +44,7 @@ function uploadFile($fileName,$target_dir){;
        if (move_uploaded_file($_FILES[$fileName]["tmp_name"], $target_file)) {
            echo "The file ". basename( $_FILES[$fileName]["name"]). " has been uploaded.";
        } else {
-           echo "Sorry, there was an error uploading your file.";
+           echo " Sorry, there was an error uploading your file.";
        }
    }
 

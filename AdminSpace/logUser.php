@@ -16,7 +16,7 @@
       ?>
          <script>
             window.alert("Invalid UserName or Password!");
-            window.location.href="logIn.html";
+            window.location.href="index.html";
          </script>
       <?php
    }

@@ -7,4 +7,4 @@ Faculty:Faculty of Art and Sciences
 Department:Department Of Chemistry.
 Mail:mh210@aub.edu.lb
 Phone: 01 350 000 -Ext:3988
-Office: Chemistry 424
+Office: Chemistry 424    

@@ -3,6 +3,7 @@
    if(isset($_REQUEST["text"])){
       //change the textFile and inform the user
       $str = preg_replace('/^\h*\v+/m', '', $_REQUEST["text"]);
+
       file_put_contents("../DB/research.txt",$str);
       // informing the user
       ?>
